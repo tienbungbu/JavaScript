@@ -11,38 +11,20 @@
   </head>
   <body>
 
-    <button type="button"
-    onclick="stopTimeout()">Stop timeout</button>
 
-<button type="button"
-    onclick="stopInterval()">Stop Interval</button>
+  <script>
 
+    let ck = document.cookie
+    console.log(ck)
 
-<script>
-//settimeout
-window.setTimeout(function () {
-    console.log("Goi vao day")
-}, 5000)
+    function createCookie(name, value, expDay) {
+        let now = new Date()
+        now.setDate(now.getTime() + expDay * 24 * 60 * 60 * 1000)
 
-function hello() {
-    console.log("Hello")
-}
-let timeout = setTimeout(hello, 10000)
+        document.cookie = name + "=" + value + ";expires = " + now.toUTCString() + ";"
+    }
 
-function stopTimeout() {
-    clearTimeout(timeout)
-}
-
-//set interval
-let timeInverval = setInterval(function () {
-    console.log(new Date().toUTCString())
-}, 1000)
-
-function stopInterval() {
-    window.clearInterval(timeInverval)
-    console.log("Stop interval")
-}
-</script>
+  </script>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
