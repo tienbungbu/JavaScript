@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>JS Hide/Show Div</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container mt-4 ">
+        <div class="row">
+            <div class="div col">
+            <form action="">
+                <h1 style="text-align: center;">Add User </h1>
+                <div class="form-group">
+                  <input required
+                  type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="Your Email">
+                  <small  id="emailHelpId" class="form-text text-muted"></small>
+                </div>
+                <div class="form-group">
+                    <input required minlength="6" value=""
+                    type="password" class="form-control" name="password" id="password" 
+                    aria-describedby="emailHelpId" placeholder="Your Password">
+                    <p id="passwordHelpId"></p>
+                  </div>
+                  <div class="form-group">
+                    <input required minlength="6" value=""
+                    type="password" class="form-control" name="password2" id="password2" 
+                    aria-describedby="" placeholder="Input Your Password Again">
+                    <p id="passwordHelpId2"></p>
+                  </div>
+                <div class="form-group">
+                  <input type="text" name="address" id="address" required
+                  class="form-control" placeholder="Your Address" aria-describedby="helpId">          
+                </div>
+                <div class="form-group">
+                    <p>Giới tính</p>
+                    <label for="gender ">
+                    <input type="radio" name="gender" id="nam" value=""> Nam
+                </label>
+                <label for="gender">
+                    <input type="radio" name="gender" id="nu" value="Nữ"> Nữ
+                </label>     
+            </div>
+            <div id="namDiv" style="display: none; color: blue;"> ĐÂY LÀ NAM</div>
+            <div id="nuDiv" style="display: none; color: chocolate;"> ĐÂY LÀ NỮ</div>
+
+                <button id="submitBtn" type="submit" class="btn btn-success" style="margin-left: 50%;">Add</button>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        let submitBtn = document.getElementById("submitBtn")
+        let password = document.getElementById("password")
+        let password2 = document.getElementById("password2")
+        let passwordHelpId = document.getElementById("passwordHelpId")
+        let passwordHelpId2 = document.getElementById("passwordHelpId2")
+
+        let nam = document.getElementById("nam")
+        let namDiv = document.getElementById("namDiv")
+        let nu = document.getElementById("nu")
+        let nuDiv = document.getElementById("nuDiv")
+
+        nam.onchange = function(){
+            namDiv.style.display = "block"
+            nuDiv.style.display = "none"
+        }
+
+        nu.onchange = function(){
+            nuDiv.style.display = "block"
+            namDiv.style.display = "none"
+        }
+
+
+        submitBtn.onclick = function(){
+            if(password.value.length <6){
+                passwordHelpId.style.color = "red"
+                passwordHelpId.innerText = "Mật khẩu phải lớn hơn 6 kí tự"
+            }
+            else if(password.value.length >=6){
+
+                passwordHelpId.innerText = ""
+                if(password2.value != password.value){
+                passwordHelpId2.style.color = "red"
+                passwordHelpId2.innerText = "Mật khẩu không trùng nhau. Nhập lại"
+            }else{
+                passwordHelpId2.innerText = ""
+            }
+            }
+            
+        }
+
+    </script>
+
+
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
