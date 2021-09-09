@@ -17,26 +17,7 @@
 
 
   <script>
-  
-  var coursesApi= 'http://localhost:3000/courses'
-
-  fetch(coursesApi)
-      .then(function(respone){
-        return respone.json();
-      })
-      .then(function (posts) {
-          var htmls = posts.map(function(post){
-
-            return `<li> 
-              <h2> ${post.name} </h2>
-              <p> ${post.description} </p>  
-            </li>`;
-
-          })  ;
-          var html = htmls.join('')
-          document.getElementById("post-block").innerHTML = html
-          
-      })
+    
       
 
   </script>
